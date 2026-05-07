@@ -3,7 +3,7 @@ import logging
 from pathlib import Path
 
 from telegram import Update
-from telegram.ext import (
+from telegram import (
     Application,
     CallbackQueryHandler,
     CommandHandler,
