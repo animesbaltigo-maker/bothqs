@@ -19,6 +19,7 @@ from handlers.broadcast import (
     broadcast_callbacks,
     broadcast_command,
     broadcast_message_router,
+    broadcast_public_callbacks,
 )
 from handlers.catalog import atualizacoes, catalogo, editoras, mais_vistas
 from handlers.help import ajuda
@@ -144,6 +145,7 @@ def main() -> None:
     app.add_handler(CommandHandler("verdivisor", verdivisor))
 
     app.add_handler(CallbackQueryHandler(broadcast_callbacks, pattern=r"^bc\|"))
+    app.add_handler(CallbackQueryHandler(broadcast_public_callbacks, pattern=r"^bc_public\|"))
     app.add_handler(CallbackQueryHandler(referral_button, pattern=r"^noop_indicar$"))
     app.add_handler(CallbackQueryHandler(callbacks, pattern=r"^hq\|"))
 
