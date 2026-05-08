@@ -1,6 +1,14 @@
 from __future__ import annotations
 
-from telegram import InlineKeyboardButton, InlineKeyboardMarkup
+import os
+
+from telegram import InlineKeyboardButton, InlineKeyboardMarkup, WebAppInfo
+
+
+BALTIGO_UNIVERSE_WEBAPP_URL = os.getenv(
+    "BALTIGO_UNIVERSE_WEBAPP_URL",
+    "https://rough-double-remarkable-north.trycloudflare.com/miniapp/bots/index.html",
+).strip()
 
 
 def main_menu_keyboard() -> InlineKeyboardMarkup:
@@ -17,6 +25,12 @@ def main_menu_keyboard() -> InlineKeyboardMarkup:
             [
                 InlineKeyboardButton("❤️ Favoritas", callback_data="hq|favorites|1"),
                 InlineKeyboardButton("🕘 Historico", callback_data="hq|history|1"),
+            ],
+            [
+                InlineKeyboardButton(
+                    "⚔️ Universo Baltigo",
+                    web_app=WebAppInfo(url=BALTIGO_UNIVERSE_WEBAPP_URL),
+                )
             ],
         ]
     )

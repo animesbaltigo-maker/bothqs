@@ -154,7 +154,7 @@ async def send_home_panel(target, context: ContextTypes.DEFAULT_TYPE, first_name
             updated_titles=_home_titles(snapshot, "updates"),
         ),
         keyboard=main_menu_keyboard(),
-        photo="",
+        photo=PROMO_BANNER_URL,
         edit=edit,
     )
 

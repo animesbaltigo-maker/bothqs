@@ -109,6 +109,9 @@ PDF_WORKERS_BULK = _env_int("PDF_WORKERS_BULK", 1)
 PDF_PROTECT_CONTENT = _env_bool("PDF_PROTECT_CONTENT", True)
 
 TELEGRAPH_AUTHOR = os.getenv("TELEGRAPH_AUTHOR", BOT_BRAND).strip() or BOT_BRAND
-PROMO_BANNER_URL = os.getenv("PROMO_BANNER_URL", "").strip()
+PROMO_BANNER_URL = os.getenv(
+    "PROMO_BANNER_URL",
+    "https://photo.chelpbot.me/AgACAgEAAxkBa-wKPmn-ZprlQctPM-MQNYtBwlJimld5AALfC2sb2U34R-qFUhmN9z82AQADAgADeQADOwQ/photo.jpg",
+).strip()
 STICKER_DIVISOR = os.getenv("STICKER_DIVISOR", "").strip()
 DISTRIBUTION_TAG = os.getenv("DISTRIBUTION_TAG", "@HQs_Brasil").strip() or "@HQs_Brasil"
