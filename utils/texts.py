@@ -11,15 +11,13 @@ def start_text(first_name: str, *, popular_titles: list[str] | None = None, upda
     updated_titles = [title for title in (updated_titles or []) if title][:2]
 
     lines = [
-        f"📚 <b>{html.escape(BOT_BRAND)}</b>",
+        f"📚 <b>Bem-vindo ao {html.escape(BOT_BRAND)}, {html.escape(first_name)}!</b>",
         "",
-        f"Oi, {html.escape(first_name)}. Aqui a ideia e simples: achar rapido, abrir limpo e continuar do ponto certo.",
+        "HQs, quadrinhos e webtoons em um so lugar, direto pelo Telegram.",
         "",
-        "O que voce consegue fazer agora:",
-        "• buscar qualquer HQ por nome",
-        "• retomar a ultima leitura em 1 toque",
-        "• salvar favoritas e historico",
-        "• abrir leitura rapida ou gerar PDF e EPUB",
+        "<blockquote>• 🔎 Busque HQs pelo nome",
+        "• 📖 Abra capitulos e continue do ponto certo",
+        "• ❤️ Guarde favoritas e acompanhe seu historico</blockquote>",
     ]
 
     if popular_titles:
@@ -43,7 +41,7 @@ def start_text(first_name: str, *, popular_titles: list[str] | None = None, upda
     lines.extend(
         [
             "",
-            f"Digite <code>/buscar nome da HQ</code> ou <code>{html.escape(query_hint)}</code> para comecar.",
+            f"<i>Digite <code>/buscar nome da HQ</code> ou <code>{html.escape(query_hint)}</code> para comecar.</i>",
         ]
     )
     return "\n".join(lines)
