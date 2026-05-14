@@ -63,6 +63,11 @@ def _env_bool(name: str, default: bool) -> bool:
     return default
 
 
+def _env_str_list(name: str, default: str) -> list[str]:
+    raw = os.getenv(name, default).replace(";", ",")
+    return [item.strip() for item in raw.split(",") if item.strip()]
+
+
 BOT_TOKEN = os.getenv("BOT_TOKEN", "").strip()
 BOT_USERNAME = os.getenv("BOT_USERNAME", "HQBaltigoBot").strip().lstrip("@")
 BOT_BRAND = os.getenv("BOT_BRAND", "HQ Baltigo").strip() or "HQ Baltigo"
@@ -70,8 +75,12 @@ BOT_BRAND = os.getenv("BOT_BRAND", "HQ Baltigo").strip() or "HQ Baltigo"
 CATALOG_SITE_BASE = os.getenv("CATALOG_SITE_BASE", "https://www.hq-now.com").strip().rstrip("/")
 CATALOG_API_URL = os.getenv("CATALOG_API_URL", "https://admin.hq-now.com/graphql").strip()
 
-REQUIRED_CHANNEL = os.getenv("REQUIRED_CHANNEL", "").strip()
-REQUIRED_CHANNEL_URL = os.getenv("REQUIRED_CHANNEL_URL", "").strip() or "https://t.me/"
+REQUIRED_CHANNEL = os.getenv("REQUIRED_CHANNEL", "@HQs_Brasil").strip()
+REQUIRED_CHANNELS = _env_str_list(
+    "REQUIRED_CHANNELS",
+    "@AtualizacoesOn,@HQs_Brasil,@QG_BALTIGO",
+)
+REQUIRED_CHANNEL_URL = os.getenv("REQUIRED_CHANNEL_FOLDER_URL", "https://t.me/addlist/0liJ2fSfsm84ZjUx").strip()
 CANAL_POSTAGEM = os.getenv("CANAL_POSTAGEM", "").strip()
 CANAL_POSTAGEM_HQS = os.getenv("CANAL_POSTAGEM_HQS", "").strip() or CANAL_POSTAGEM or "@HQs_Brasil"
 CANAL_POSTAGEM_UPDATES = os.getenv("CANAL_POSTAGEM_UPDATES", "").strip() or CANAL_POSTAGEM
