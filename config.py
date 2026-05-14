@@ -81,7 +81,7 @@ REQUIRED_CHANNELS = _env_str_list(
     "REQUIRED_CHANNELS",
     "@AtualizacoesOn,@HQs_Brasil,@QG_BALTIGO",
 )
-REQUIRED_CHANNEL_URL = os.getenv("REQUIRED_CHANNEL_FOLDER_URL", "https://t.me/addlist/0liJ2fSfsm84ZjUx").strip()
+REQUIRED_CHANNEL_URL = os.getenv("REQUIRED_CHANNEL_URL", "https://t.me/HQs_Brasil").strip()
 CANAL_POSTAGEM = os.getenv("CANAL_POSTAGEM", "").strip()
 CANAL_POSTAGEM_HQS = os.getenv("CANAL_POSTAGEM_HQS", "").strip() or CANAL_POSTAGEM or "@HQs_Brasil"
 CANAL_POSTAGEM_UPDATES = os.getenv("CANAL_POSTAGEM_UPDATES", "").strip() or CANAL_POSTAGEM
